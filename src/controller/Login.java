@@ -46,6 +46,7 @@ public class Login extends HttpServlet {
 
 				String username = request.getParameter("email");
 				String password = request.getParameter("pass");
+				// 3:Kiểm tra nếu đúng: Về trang login thành công
 				if (UserDao.check(username, password)) {
 					User user = UserDao.listCustomer.get(UserDao.findIndexAccount(username));
 					session.setAttribute("signIn",  user.getName());
@@ -53,6 +54,7 @@ public class Login extends HttpServlet {
 					RequestDispatcher rd = getServletContext().getRequestDispatcher("/success.jsp");
 					rd.forward(request, response);
 				}
+				//4:Kiểm tra sai thì: Hiển thị thông báo 
 				else {
 					request.setAttribute("account", "Email or password wrong");
 					RequestDispatcher rd = getServletContext().getRequestDispatcher("/Login.jsp");
