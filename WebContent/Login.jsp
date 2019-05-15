@@ -50,11 +50,13 @@ a:HOVER {
 </head>
 
 <body>
+	//1: Hiển thị form login
 	<section>
 		<div class="container">
 			<div class="login-form">
 				<h1 style="color: black;" class="btn-login">Login</h1>
 				<form action="Login?action=signIn" method="post">
+					//2: Nhập email, password
 					<div>
 						<input type="email" name="email" placeholder="Email" value="" required="required"
 							style="border: 2px solid black;">
