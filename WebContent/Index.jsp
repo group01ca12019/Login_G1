@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="google-site-verification"
+	content="uUcwSBeeqdAC3gOnxo0p5KkIUaK7StNamWynZJPPA84" />
 <meta charset="UTF-8">
 <title>Index</title>
 <link rel="stylesheet" href="login/login.css">
@@ -99,7 +101,7 @@ a:HOVER {
 	<section>
 		<div style="margin-left: 40%; margin-top: 100px;">
 			<h1 style="color: #0D39C9; font-size: 40px; font-family: arial;">Welcome</h1>
-			<a href="Login.jsp"><input type="button" value="Login" class="btn-login" style="margin-left: 8%; color: #FFF"></a>
+			<a href="login.jsp"><input type="button" value="Login" class="btn-login" style="margin-left: 8%; color: #FFF"></a>
 		</div>
 	</section>
 </body>
