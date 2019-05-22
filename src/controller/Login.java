@@ -42,11 +42,10 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			if (action == null) {
 
-			} else if (action.equals("signIn")) {
+			}  else if (action.equals("signIn")) {
 
 				String username = request.getParameter("email");
 				String password = request.getParameter("pass");
-				// 3:Kiểm tra nếu đúng: Về trang login thành công
 				if (UserDao.check(username, password)) {
 					User user = UserDao.listCustomer.get(UserDao.findIndexAccount(username));
 					session.setAttribute("signIn",  user.getName());
@@ -54,32 +53,22 @@ public class Login extends HttpServlet {
 					RequestDispatcher rd = getServletContext().getRequestDispatcher("/success.jsp");
 					rd.forward(request, response);
 				}
-				//4:Kiểm tra sai thì: Hiển thị thông báo 
 				else {
 					request.setAttribute("account", "Email or password wrong");
-					RequestDispatcher rd = getServletContext().getRequestDispatcher("/Login.jsp");
+					RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
 					rd.forward(request, response);
 				}
 
-			}
-			else if(action.equals("google")) {
-			
-				String name =request.getParameter("name");
-				session.setAttribute("signIn",   name);
-				session.setAttribute("google",  name);
+			} else if (action.equals("google")) {
+				String name = request.getParameter("name");
+				session.setAttribute("signIn", name);
+				session.setAttribute("google", name);
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/success.jsp");
 				rd.forward(request, response);
-				
-			}
-			else if(action.equals("googlelogout")) {
-					
-				session.setAttribute("signIn",  null);
-				session.setAttribute("google",  null);
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/success.jsp");
-				rd.forward(request, response);
-				
+
 			}
 
 		}
+
 	}
 }
