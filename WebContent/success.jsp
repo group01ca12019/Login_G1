@@ -4,9 +4,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id"
-	content="941522555947-3ej3srtd6g8rapqepmrth164ria1il5u.apps.googleusercontent.com">
 <title>Success</title>
 <link rel="stylesheet" href="login/login.css">
 <!-- icon -->
@@ -80,28 +77,23 @@ button:HOVER {
 </head>
 
 <body>
-	<%
+<%
 		String s = (String) session.getAttribute("signIn");
-		if (s == null || s.equals("")) {
-	%>
-	<jsp:forward page="login.jsp"></jsp:forward>
+ 		if (s == null || s.equals("")) {
+%>
+	<jsp:forward page="login.jsp"></jsp:forward> 
 
-	<%
-		}
-
-		else {
-	%>
-	<div>
-	<button type="button" class="btn-login" style="margin-top: 50px; margin-left: 1200px;"><a href="LogOut">Log Out</a></button>
-	</div>
+<% }else {%> 
+	
+	
 	<section>
 		<div style="margin-left: 40%">
 				<h1 style="color: #0D39C9; font-size: 40px; font-family: arial;">Login success</h1>
 		</div>
 	</section>
 
-	<%
-		}
-	%>
+<%
+	}
+	%> 
 </body>
 </html>
