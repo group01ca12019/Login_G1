@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.SendMail;
 import model.User;
 import model.UserDao;
 
 @WebServlet("/Login")
-public class Login extends HttpServlet {
+public class LoginCotroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public Login() {
+	public LoginCotroller() {
 		super();
 
 	}
@@ -67,6 +68,30 @@ public class Login extends HttpServlet {
 				rd.forward(request, response);
 
 			}
+			else if (action.equals("forgot")) {
+				String name = request.getParameter("email");
+				String pass = request.getParameter("pass");
+				if(UserDao.findIndexAccount(name) != -1) {	
+					if(SendMail.sendMail(name, "New password", "New password is: " + pass + "\r\n click link : https://chauvanson.azurewebsites.net/login.jsp  to continue login  \r\t Good day!!!" ) == true){
+						UserDao.updateAcount(name, pass);
+						request.setAttribute("email", "check mail để tiếp tục vào hệ thống");
+						RequestDispatcher rd = getServletContext().getRequestDispatcher("/forgot.jsp");
+						rd.forward(request, response);
+					}
+					else {
+					request.setAttribute("email", "Email don't exist");
+					RequestDispatcher rd = getServletContext().getRequestDispatcher("/forgot.jsp");
+					rd.forward(request, response);}
+				}
+				else {
+					request.setAttribute("email", "Email don't have in system");
+					RequestDispatcher rd = getServletContext().getRequestDispatcher("/forgot.jsp");
+					rd.forward(request, response);
+				}
+				
+
+			}
+			
 
 		}
 
