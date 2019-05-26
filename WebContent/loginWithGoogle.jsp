@@ -8,7 +8,6 @@
 	<script>
     function onSuccess(googleUser) {
     	var profile = googleUser.getBasicProfile();
-		var imagurl = profile.getImageUrl();
 		var name = profile.getName();
 		window.location.href='Login?name='+profile.getName()+'&action=google'
     }
@@ -27,10 +26,6 @@
       });
     }
   </script>
-
-
-
-
 	<script
 		src="https://apis.google.com/js/platform.js?onload=renderButton" async
 		defer></script>
