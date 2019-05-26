@@ -84,6 +84,19 @@ button:HOVER {
 	<jsp:forward page="login.jsp"></jsp:forward> 
 
 <% }else {%> 
+<div style="margin-left: 40%">
+
+<h2>
+					Welcome
+					<%=s%>
+					to our website
+				</h2>
+				</div>
+				<%
+					String email = (String) session.getAttribute("signIn");
+						if (email != null || !email.equals("")) ;
+				%>
+
 	
 	
 	<section>
