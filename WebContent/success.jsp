@@ -81,7 +81,7 @@ button:HOVER {
 		String s = (String) session.getAttribute("signIn");
  		if (s == null || s.equals("")) {
 %>
-	<jsp:forward page="login.jsp"></jsp:forward> 
+	<jsp:forward page="index.jsp"></jsp:forward> 
 
 <% }else {%> 
 <div style="margin-left: 40%">
